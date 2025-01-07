@@ -91,6 +91,7 @@ public class OrderService {
 
     saveDetails(details, entityManager, finalOrder);
     entityManager.getTransaction().commit();
+    entityManager.close();
     return finalOrder;
   }
 
@@ -113,6 +114,7 @@ public class OrderService {
 
     saveDetails(details, entityManager, finalOrder);
     entityManager.getTransaction().commit();
+    entityManager.close();
     return finalOrder;
   }
 
@@ -135,7 +137,6 @@ public class OrderService {
 
     Order finalOrder = orderRepository.save(order);
     details.forEach(orderDetail -> orderDetailRepository.save(orderDetail.withOrder(finalOrder)));
-
     return finalOrder;
   }
 
