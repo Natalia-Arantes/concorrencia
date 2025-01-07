@@ -171,6 +171,8 @@ public class OrderService {
       saveDetails.setParameter("sellPrice", orderDetail.getSellPrice());
       saveDetails.setParameter("quantity", orderDetail.getQuantity());
       saveDetails.setParameter("productId", orderDetail.getProduct().getId());
+
+      saveDetails.executeUpdate();
     });
   }
 }
